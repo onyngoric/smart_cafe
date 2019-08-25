@@ -1,0 +1,94 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="onyangoric">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Feedbacks</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/starter-template/">
+
+    <!-- Bootstrap core CSS -->
+<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+        body {
+        padding-top: 5rem;
+        }
+        .starter-template {
+        padding: 3rem 1.5rem;
+        text-align: center;
+        }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="{% url 'counter_orders' %}"><i class="fa fa-cutlery" style="font-size:36px;color:white"></i><b> SMART_CAFE_COUNTER   </b></a>
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'counter_orders' %}">Home </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'feedback' %}">Reviews</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'password_gen' %}">Wi-Fi_password</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+            <a class="btn btn-outline-success"  href="{% url 'logout_view' %}" role="button"><span style="color:white;">Logout</span></a>
+    </form>
+  </div>
+</nav>
+
+<main role="main" class="container">
+  <div class="row">
+    {% for item in feedback %}
+    <div class="col-md-3 text-center">
+        <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+          <div class="card-header">Phone No: {{item.phone_no}}</div>
+          <div class="card-body">
+            <h5 class="card-title">Name: {{item.name}}</h5>
+            <h6 class="card-text">Table No: {{item.table_no}}</h6>
+            <p class="card-text">Rate: {{item.rate}}</p>
+            <p class="card-text">Comment: {{item.comment}}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+</main><!-- /.container -->
+</body>
+  <footer class="mastfoot mt-auto">
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+        <a href="#"> onyangoric</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+</html>
